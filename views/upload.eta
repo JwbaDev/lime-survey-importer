@@ -1,0 +1,44 @@
+<style>
+.errors {
+	background-color: rgb(255,140,139);
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+label {
+	display: inline-block;
+	width: 15rem;
+}
+</style>
+
+<main>
+	<% let errors = it.errors ?? []; %>
+
+	<% if(errors.length > 0) { %>
+		<div class="errors distinct-element">
+			<% for(const err of errors) { %>
+			<div class="error"><%= err %></div>
+			<% } %>
+		</div>
+	<% } %>
+
+	<form method="POST" enctype="multipart/form-data" class="distinct-element">
+		<div class="field">
+			<label for="lss">Limesurvey .lss file</label>
+			<input id="lss" name="lss" type="file" accept=".lss" required>
+		</div>
+
+		<div class="field">
+			<label for="xlsx">Excel file with new responses</label>
+			<input id="xlsx" name="xlsx" type="file" accept=".xlsx" required>
+		</div>
+
+		<button type="submit">Import</button>
+	</form>
+</main>
+
+<% layout('./layout') %>

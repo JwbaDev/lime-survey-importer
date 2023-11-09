@@ -1,0 +1,20 @@
+<style>
+.success {
+	background-color: #4BB543;
+}
+.center {
+	display: flex;
+	justify-content: center;
+}
+</style>
+
+<main>
+	<div class="success distinct-element">
+		Import successful. <%= it.count %> new responses inserted.
+	</div>
+	<div class="center">
+		<button onclick="window.location='/'">Go back</button>
+	</div>
+</main>
+
+<% layout('./layout') %>
